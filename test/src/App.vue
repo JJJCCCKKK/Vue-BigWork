@@ -1,12 +1,33 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link  to="/">主页</router-link> 
+    <router-link to="/category">||商品分类</router-link>
   </nav>
   <router-view/>
 </template>
+<script >
+// 接口说明文档：https://www.showdoc.com.cn/1207745568269674/6094279351627422
+// 测试邮箱：1509373762@qq.com   123456
+// 测试邮箱：panpan_smile@outlook.com   panpan
+import { defineComponent,onMounted,watchEffect} from 'vue';
+import {useStore} from 'vuex';
+export default defineComponent({
+  name: 'App',
+  components: {
 
-<style>
+  },
+  setup(){
+    let store=useStore();
+    return{
+      store
+    }
+  }
+});
+</script>
+<style lang="scss">
+@import url('../src/assets/css/base.css');
+@import url('../src/assets/css/iconfont.css');
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,16 +36,41 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+#nav {
+  // padding: 30px;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  background-color: #F6F6F6;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 -3px 3px rgba(100,100,100,0.1);
+  z-index: 15;
+
+  a {
+    color: var(--color-text);
+
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+
+  .tab-bar-item{
+    flex: 1;
+    text-align: center;
+    height: 50px;
+    font-size: var(--font-size);
+  }
+
+  .tab-bar-item .icon{
+    width: 24px;
+    height: 24px;
+    margin-top: 5px;
+    vertical-align: middle;
+    display: inline-block;
+  }
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
