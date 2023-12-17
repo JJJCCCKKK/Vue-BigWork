@@ -1,14 +1,12 @@
 <template>
   <nav>
-    <router-link  to="/">主页</router-link> 
+    <router-link  to="/">主页</router-link>
     <router-link to="/category">||商品分类</router-link>
   </nav>
   <router-view/>
 </template>
 <script >
-// 接口说明文档：https://www.showdoc.com.cn/1207745568269674/6094279351627422
-// 测试邮箱：1509373762@qq.com   123456
-// 测试邮箱：panpan_smile@outlook.com   panpan
+
 import { defineComponent,onMounted,watchEffect} from 'vue';
 import {useStore} from 'vuex';
 export default defineComponent({
