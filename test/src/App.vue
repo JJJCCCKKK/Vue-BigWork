@@ -1,32 +1,48 @@
 <template>
-  <nav>
-    <router-link  to="/">主页</router-link> 
-    <router-link to="/category">||商品分类</router-link>
-  </nav>
+  <div id="nav">
+    <!--nav是导航，下面是每一个导航小图标，由路由链接+图标+文字组成，功能是点击后转跳到对应页面 -->
+    <router-link class="tab-bar-item" to="/home">
+
+      <div class="icon"><i class="iconfont icon-shouye"></i></div>
+      <div>首页</div>
+    </router-link>
+    <router-link class="tab-bar-item" to="/category">
+
+      <div class="icon"><i class="iconfont icon-fenlei"></i></div>
+      <div>分类</div>
+    </router-link>
+    <router-link class="tab-bar-item" to="/shopcart">
+
+      <div class="icon"><i class="iconfont icon-gouwuchezhengpin"></i></div>
+      <div>购物车</div>
+    </router-link>
+    <router-link class="tab-bar-item" to="/profile">
+
+      <div class="icon"><i class="iconfont icon-yonghus"></i></div>
+      <div>我的</div>
+    </router-link>
+  </div>
   <router-view/>
 </template>
-<script >
-// 接口说明文档：https://www.showdoc.com.cn/1207745568269674/6094279351627422
-// 测试邮箱：1509373762@qq.com   123456
-// 测试邮箱：panpan_smile@outlook.com   panpan
-import { defineComponent,onMounted,watchEffect} from 'vue';
-import {useStore} from 'vuex';
-export default defineComponent({
-  name: 'App',
-  components: {
 
-  },
-  setup(){
-    let store=useStore();
-    return{
-      store
-    }
-  }
-});
+
+//进行一个脚本的编写
+<script leng="ts">
+//TypeScript是JavaScript的超集，它提供了类型系统，提供了静态类型检查的功能。这能够让你在编译阶段就找出潜在的错误，而不需要等到运行时才能发现问题。
+
+import {defineComponent,onMounted,watchEffect} from "vue";
+
+export default defineComponent({
+  name:'App',
+  components:{},
+
+},
+)
 </script>
+
+//进行样式编写，采用scss进行预编译为css增加一些编程特性，无需考虑浏览器的兼容性（完全兼容css3），让css更加简洁、适应性更强，可读性更佳，更易于代码的维护等诸多好处
+
 <style lang="scss">
-@import url('../src/assets/css/base.css');
-@import url('../src/assets/css/iconfont.css');
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
